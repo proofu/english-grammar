@@ -8,3 +8,10 @@ button {
 input {
     font-family: Open Sans;
 }
+#box-container {
+    /* background-color: aquamarine; */
+    display: flex;
+    height: 500px;
+    flex-direction: row;
+    justify-content: space-between;
+}

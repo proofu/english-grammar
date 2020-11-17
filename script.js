@@ -46,9 +46,9 @@ let checkAnswer = function (inputNumber) {
         currentInput = allElements[inputNumber - 1];
 
         if (currentInput.correctAnswer === DOMinput){
-            console.log('correct');            
+            document.getElementById(`check_${inputNumber}`).innerHTML = "Correct!";
         } else {
-            console.log('no')
+            document.getElementById(`check_${inputNumber}`).innerHTML = "Wrong answer. Try again.";
         }
         
     };
@@ -61,10 +61,6 @@ init = function(){
 init();
 
 // pruebas *************
-html = '<div>1) I <input type="text" id="input_text_1"> (hear) a new song on the radio.<br><input type="button" id="check_input_1" value="Check"><button class="show_answer">Show answer</button>[.]</div>'
-document.getElementById('input_text_1').insertAdjacentHTML('beforeend', function(){
-    html.replace('[.]', 'it works');
-});
 
-// planning
-// - show result in HTML
+// *******PLANNING*********
+// show correct answer
