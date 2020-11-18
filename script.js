@@ -19,11 +19,17 @@ let setUpEventListeners = function(){
     
     // setting up check button
     allElements.forEach((cur) => {
-        document.getElementById(`check_input_${cur.inputNumber.toString()}`).addEventListener("click", function(){
+        let inputNumberString;        
+        
+        inputNumberString = cur.inputNumber.toString();
+        document.getElementById(`check_input_${inputNumberString}`).addEventListener("click", function(){
             checkAnswer(cur.inputNumber);
         });
+        document.getElementById(`show_answer_${inputNumberString}`).addEventListener("click", function(){
+            showAnswer(cur.inputNumber);
+        });
     });
-    
+
 }
 
 let DOMinputText = function() {
@@ -39,6 +45,7 @@ let DOMinputText = function() {
 
 // reading input data    
 let checkAnswer = function (inputNumber) {
+
         // checking answer  
         let DOMinput, currentInput;
 
@@ -52,7 +59,15 @@ let checkAnswer = function (inputNumber) {
         }
         
     };
+
+// show correct answer
+let showAnswer = function (inputNumber) {
     
+    currentInput = allElements[inputNumber - 1];
+    
+    document.getElementById(`show_${inputNumber}`).innerHTML = `Correct answer: ${currentInput.correctAnswer}`;
+
+}
 
 init = function(){
     setUpEventListeners();
